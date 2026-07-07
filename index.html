@@ -394,6 +394,13 @@ footer{background:var(--bg2);border-top:.5px solid var(--bdr);padding:3.5rem 5re
   }
 }
 
+
+/* BUTTON LIGHT CONTRAST POLISH */
+[data-theme="light"] .bp { background: var(--gold3); color: #ffffff; }
+[data-theme="light"] .bp:hover { background: var(--gold); color: #0A1931; }
+[data-theme="light"] .mmenu-btn { color: var(--gold3); }
+[data-theme="light"] .hpill { background: rgba(255,255,255,0.85); border-color: rgba(179,155,75,.35); color: var(--t2); }
+
 </style>
 </head>
 <body>
@@ -560,7 +567,12 @@ footer{background:var(--bg2);border-top:.5px solid var(--bdr);padding:3.5rem 5re
       </div>
       <div class="fcontact"><h5 style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;font-weight:600;">Contact</h5><p>Lakshimipuram, Guntur<br>Andhra Pradesh, India<br><br><a href="tel:+919110570482">+91 911 057 0482</a><br><a href="mailto:info@eshfinga.com">info@eshfinga.com</a></p></div>
     </div>
-    <div class="fdiv"></div>
+    
+<div style="font-size: 0.56rem; line-height: 1.6; color: var(--t3); text-align: justify; margin-top: 1.5rem; border-top: .5px solid var(--bdr); padding-top: 1.2rem; font-family: 'Montserrat', sans-serif;">
+  <strong>Important Disclaimer:</strong> ESHFINGA refers to a global network of independent business advisory professionals. The information and insights provided on this website are for general informational purposes only and do not constitute formal tax, legal, financial, or corporate advisory advice. ESHFINGA is not a registered corporate entity, commercial partnership, or licensed financial services licensee in any jurisdiction. Engagement of advisory services is subject to individual contracts.
+</div>
+
+<div class="fdiv"></div>
     <div class="fbot"><div class="fcopy">© 2026 ESHFINGA. All Rights Reserved.</div><div class="fcopy"><a onclick="openArticle('privacy')" style="color:var(--t3);text-decoration:none;cursor:pointer;">Privacy Policy</a> · <a onclick="openArticle('privacy')" style="color:var(--t3);text-decoration:none;cursor:pointer;">Confidentiality Statement</a></div></div>
   </footer>
 </div>
@@ -926,7 +938,11 @@ footer{background:var(--bg2);border-top:.5px solid var(--bdr);padding:3.5rem 5re
         <h2 class="subh">Initiate a Conversation</h2>
         <p class="bodyp" style="margin-bottom:1.5rem;">All enquiries are treated with absolute confidentiality. Our team responds within 24 hours.</p>
         <div class="ifr-wrap" style="padding: 2.2rem; background: var(--surf);">
-          <form id="customContactForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdSrRTE2yNlLlGgnfS_0bvRxuF2YkYh0RigZjzynx874H1Xgw/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+          <form id="customContactForm" action="https://api.web3forms.com/submit" method="POST" onsubmit="submitted=true;">
+            <!-- Get your free key at web3forms.com. Paste it below to start receiving submissions directly in your inbox. -->
+            <input type="hidden" name="access_key" value="b3319d1f-a934-41c4-9221-02edd1c4d3d3">
+            <input type="hidden" name="subject" value="New ESHFINGA Contact Request">
+            <input type="hidden" name="from_name" value="ESHFINGA Website">
             <div class="fg">
               <label for="fName">Your Full Name *</label>
               <input type="text" id="fName" name="entry.1511831393" required>
@@ -972,7 +988,7 @@ footer{background:var(--bg2);border-top:.5px solid var(--bdr);padding:3.5rem 5re
               Thank you! Your request has been successfully submitted. We will contact you within 24 hours.
             </div>
           </form>
-          <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {showFormSuccess();}"></iframe>
+          
         </div>
       </div>
       <div>
@@ -996,7 +1012,12 @@ footer{background:var(--bg2);border-top:.5px solid var(--bdr);padding:3.5rem 5re
       </div>
       <div class="fcontact"><h5 style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;font-weight:600;">Contact</h5><p>Lakshimipuram, Guntur<br>Andhra Pradesh, India<br><br><a href="tel:+919110570482">+91 911 057 0482</a><br><a href="mailto:info@eshfinga.com">info@eshfinga.com</a></p></div>
     </div>
-    <div class="fdiv"></div>
+    
+<div style="font-size: 0.56rem; line-height: 1.6; color: var(--t3); text-align: justify; margin-top: 1.5rem; border-top: .5px solid var(--bdr); padding-top: 1.2rem; font-family: 'Montserrat', sans-serif;">
+  <strong>Important Disclaimer:</strong> ESHFINGA refers to a global network of independent business advisory professionals. The information and insights provided on this website are for general informational purposes only and do not constitute formal tax, legal, financial, or corporate advisory advice. ESHFINGA is not a registered corporate entity, commercial partnership, or licensed financial services licensee in any jurisdiction. Engagement of advisory services is subject to individual contracts.
+</div>
+
+<div class="fdiv"></div>
     <div class="fbot"><div class="fcopy">© 2026 ESHFINGA. All Rights Reserved.</div><div class="fcopy"><a onclick="openArticle('privacy')" style="color:var(--t3);text-decoration:none;cursor:pointer;">Privacy Policy</a> · <a onclick="openArticle('privacy')" style="color:var(--t3);text-decoration:none;cursor:pointer;">Confidentiality Statement</a></div></div>
   </footer>
 </div>
@@ -1052,16 +1073,61 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Form submission success helper
+// Secure AJAX Form submission (Free & Static Friendly)
 let submitted = false;
-function showFormSuccess() {
-  document.getElementById('customContactForm').reset();
-  document.getElementById('formSuccessMessage').style.display = 'block';
-  submitted = false; // Reset state
-  setTimeout(() => {
-    document.getElementById('formSuccessMessage').style.display = 'none';
-  }, 7000);
-}
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("customContactForm");
+  if (form) {
+    form.removeAttribute("action"); // Handle via JS
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const successMsg = document.getElementById("formSuccessMessage");
+      const submitBtn = form.querySelector("button[type='submit']");
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending...";
+      
+      const formData = new FormData(form);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+      
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: json
+      })
+      .then(async (response) => {
+        let jsonRes = await response.json();
+        if (response.status == 200) {
+          successMsg.style.display = "block";
+          successMsg.textContent = "Thank you! Your request has been successfully submitted.";
+          form.reset();
+        } else {
+          console.log(response);
+          successMsg.style.display = "block";
+          successMsg.style.color = "#ff4a4a";
+          successMsg.textContent = jsonRes.message || "Failed to submit request.";
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        successMsg.style.display = "block";
+        successMsg.style.color = "#ff4a4a";
+        successMsg.textContent = "Something went wrong. Please try again later.";
+      })
+      .then(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit Request";
+        setTimeout(() => {
+          successMsg.style.display = "none";
+          successMsg.style.color = "var(--gold)";
+        }, 6000);
+      });
+    });
+  }
+});
 
 // Cookie Consent Logic
 function checkCookieConsent() {
