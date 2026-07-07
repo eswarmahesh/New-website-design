@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script>
-  // Immediate theme load to prevent dark/light flash (FOUC)
+  // Immediate theme load to prevent FOUC (Flash of Unstyled Content)
   (function() {
     const savedTheme = localStorage.getItem('theme') || 'dark';
     document.documentElement.setAttribute('data-theme', savedTheme);
   })();
 </script>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <meta name="description" content="ESHFINGA Global Partners — Architects of global legacy. Navigating the complexities of cross-border finance, outsourcing, compliance, and advisory across Australia, UAE, Europe, and Singapore.">
 <meta name="keywords" content="ESHFINGA, Global Partners, Corporate Tax UAE, ASIC compliance, CFO services Australia, IFRS 18, accounting outsourcing, succession planning">
-<link rel="icon" type="image/png" href="logo.png">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
 
 <!-- Open Graph / LinkedIn / WhatsApp -->
 <meta property="og:type" content="website">
@@ -55,7 +54,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--t1);ov
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:66px;backdrop-filter:blur(16px);border-bottom:.5px solid var(--bdr);transition:all .4s;}
 [data-theme="dark"] nav{background:rgba(7,17,31,.93);}
-[data-theme="light"] nav{background:rgba(240,242,245,.96);}
+[data-theme="light"] nav{background:rgba(255,255,255,.94); border-bottom: 1px solid var(--bdr);}
 .nlogo{display:flex;align-items:center;gap:.55rem;cursor:pointer;text-decoration:none;}
 .nlogo-img{height:48px;width:48px;object-fit:contain;object-position:center;}
 .nlogo-name{font-family:'EB Garamond',serif;font-size:1.25rem;letter-spacing:.14em;color:var(--gold);line-height:1;}
@@ -81,10 +80,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:cen
 .hero-content{position:relative;z-index:2;padding:4rem 4rem 6rem 5rem;max-width:680px;}
 .hero-badge{display:inline-flex;align-items:center;gap:.6rem;font-size:.58rem;letter-spacing:.38em;color:var(--gold);text-transform:uppercase;margin-bottom:1.4rem;font-weight:500;}
 .hero-badge::before{content:'';width:24px;height:1px;background:var(--gold);}
-.hero-name{font-family:'EB Garamond',serif;font-size:clamp(3rem,7vw,5.8rem);line-height:1;letter-spacing:.06em;margin-bottom:.9rem;}
+.hero-name{font-family:'EB Garamond',serif;font-size:clamp(3rem,7vw,5.8rem);line-height:1;letter-spacing:.06em;margin-bottom:.9rem;color:#e8e0cc;}
 .hero-motto{font-size:.66rem;letter-spacing:.44em;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem;font-weight:500;}
 .hero-motto em{opacity:.3;margin:0 .3rem;font-style:normal;}
-.hero-desc{font-family:'EB Garamond',serif;font-style:italic;font-size:1.08rem;color:var(--t2);line-height:1.8;margin-bottom:2.2rem;max-width:500px;}
+.hero-desc{font-family:'EB Garamond',serif;font-style:italic;font-size:1.08rem;color:rgba(232, 224, 204, .85);line-height:1.8;margin-bottom:2.2rem;max-width:500px;}
 .hero-btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:2rem;}
 .bp{padding:13px 28px;background:var(--gold);color:#0A1931;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;transition:all .3s;}
 .bp:hover{background:var(--gold-l);transform:translateY(-2px);}
@@ -388,39 +387,79 @@ footer{background:var(--bg2);border-top:.5px solid var(--bdr);padding:3.5rem 5re
     box-shadow: 0 4px 20px rgba(0,0,0,0.15);
   }
   [data-theme="dark"] .nlinks { background: rgba(7,17,31,.98); }
-  [data-theme="light"] .nlinks { background: rgba(240,242,245,.98); }
+  [data-theme="light"] .nlinks { background: #ffffff; }
   .nlinks.open {
     display: flex;
   }
 }
 
-
-/* BUTTON LIGHT CONTRAST POLISH */
-[data-theme="light"] .bp { background: var(--gold3); color: #ffffff; }
-[data-theme="light"] .bp:hover { background: var(--gold); color: #0A1931; }
-[data-theme="light"] .mmenu-btn { color: var(--gold3); }
-[data-theme="light"] .hpill { background: rgba(255,255,255,0.85); border-color: rgba(179,155,75,.35); color: var(--t2); }
+.foot-disclaimer {
+  font-size: 0.56rem;
+  line-height: 1.6;
+  color: var(--t2);
+  text-align: justify;
+  margin-top: 1.5rem;
+  border-top: .5px solid var(--bdr);
+  padding-top: 1.2rem;
+  font-family: 'Montserrat', sans-serif;
+  opacity: 0.85;
+}
 
 </style>
+
+<!-- Structured Data / JSON-LD for Google Sitelinks & Search Results -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ESHFINGA",
+  "url": "https://eshfinga.com",
+  "logo": "https://eshfinga.com/logo.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+91-911-057-0482",
+    "contactType": "customer service",
+    "areaServed": ["IN", "AE", "AU", "SG"],
+    "availableLanguage": "en"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/eshfinga"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "ESHFINGA",
+  "url": "https://eshfinga.com",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://eshfinga.com/#search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
   <div class="nlogo" onclick="showPage('home')">
-    <img src="logo.png" class="nlogo-img" alt="ESHFINGA Logo">
+    <img loading="lazy" src="logo.png" class="nlogo-img" alt="ESHFINGA Logo">
     <div><div class="nlogo-name">ESHFINGA</div><div class="nlogo-sub">Global Partners</div></div>
   </div>
   <ul class="nlinks">
-    <li><a id="nav-home" class="act" onclick="showPage('home')">Home</a></li>
-    <li><a id="nav-about" onclick="showPage('about')">About</a></li>
-    <li><a id="nav-services" onclick="showPage('services')">Services</a></li>
-    <li><a id="nav-industries" onclick="showPage('industries')">Industries</a></li>
-    <li><a id="nav-leadership" onclick="showPage('leadership')">Team</a></li>
-    <li><a id="nav-insights" onclick="showPage('insights')">Insights</a></li>
-    <li><a id="nav-partners" onclick="showPage('partners')">Partners</a></li>
-    <li><a id="nav-careers" onclick="showPage('careers')">Careers</a></li>
-    <li><a id="nav-contact" onclick="showPage('contact')">Contact</a></li>
+    <li><a id="nav-home" class="act" href="#home">Home</a></li>
+    <li><a id="nav-about" href="#about">About</a></li>
+    <li><a id="nav-services" href="#services">Services</a></li>
+    <li><a id="nav-industries" href="#industries">Industries</a></li>
+    <li><a id="nav-leadership" href="#leadership">Team</a></li>
+    <li><a id="nav-insights" href="#insights">Insights</a></li>
+    <li><a id="nav-partners" href="#partners">Partners</a></li>
+    <li><a id="nav-careers" href="#careers">Careers</a></li>
+    <li><a id="nav-contact" href="#contact">Contact</a></li>
   </ul>
   <div class="nright">
     <button class="tbtn" onclick="toggleTheme()">◐ Mode</button>
@@ -559,19 +598,17 @@ footer{background:var(--bg2);border-top:.5px solid var(--bdr);padding:3.5rem 5re
 
   <footer>
     <div class="foot-top">
-      <div><div class="flogo"><img src="logo.png" alt="ESHFINGA"><div><div class="flogo-name">ESHFINGA</div><div class="flogo-motto">Intelligence · Integrity · Impact</div></div></div></div>
+      <div><div class="flogo"><img loading="lazy" src="logo.png" alt="ESHFINGA"><div><div class="flogo-name">ESHFINGA</div><div class="flogo-motto">Intelligence · Integrity · Impact</div></div></div></div>
       <div class="flinks">
-        <div class="fcol"><h5>Services</h5><a onclick="showPage('services')">Finance</a><a onclick="showPage('services')">Outsourcing</a><a onclick="showPage('services')">Consulting</a><a onclick="showPage('services')">Auditing</a><a onclick="showPage('services')">Advisory</a></div>
-        <div class="fcol"><h5>Company</h5><a onclick="showPage('about')">About</a><a onclick="showPage('leadership')">Team</a><a onclick="showPage('partners')">Partners</a><a onclick="showPage('careers')">Careers</a><a onclick="showPage('insights')">Insights</a></div>
-        <div class="fcol"><h5>Markets</h5><a onclick="showPage('about')">Australia</a><a onclick="showPage('about')">UAE &amp; Middle East</a><a onclick="showPage('about')">Europe</a><a onclick="showPage('about')">Singapore</a></div>
+        <div class="fcol"><h5>Services</h5><a href="#services">Finance</a><a href="#services">Outsourcing</a><a href="#services">Consulting</a><a href="#services">Auditing</a><a href="#services">Advisory</a></div>
+        <div class="fcol"><h5>Company</h5><a href="#about">About</a><a href="#leadership">Team</a><a href="#partners">Partners</a><a href="#careers">Careers</a><a href="#insights">Insights</a></div>
+        <div class="fcol"><h5>Markets</h5><a href="#about">Australia</a><a href="#about">UAE &amp; Middle East</a><a href="#about">Europe</a><a href="#about">Singapore</a></div>
       </div>
       <div class="fcontact"><h5 style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;font-weight:600;">Contact</h5><p>Lakshimipuram, Guntur<br>Andhra Pradesh, India<br><br><a href="tel:+919110570482">+91 911 057 0482</a><br><a href="mailto:info@eshfinga.com">info@eshfinga.com</a></p></div>
     </div>
-    
-<div style="font-size: 0.56rem; line-height: 1.6; color: var(--t3); text-align: justify; margin-top: 1.5rem; border-top: .5px solid var(--bdr); padding-top: 1.2rem; font-family: 'Montserrat', sans-serif;">
-  <strong>Important Disclaimer:</strong> ESHFINGA refers to a global network of independent business advisory professionals. The information and insights provided on this website are for general informational purposes only and do not constitute formal tax, legal, financial, or corporate advisory advice. ESHFINGA is not a registered corporate entity, commercial partnership, or licensed financial services licensee in any jurisdiction. Engagement of advisory services is subject to individual contracts.
+    <div class="foot-disclaimer">
+  <strong>Important Disclaimer:</strong> ESHFINGA refers to a global network of independent business advisory professionals. The content on this website is for informational purposes only and does not constitute formal tax, legal, financial, or corporate advisory advice. ESHFINGA is not a registered corporate entity, commercial partnership, or licensed financial services licensee in any jurisdiction. Engagement of advisory services is subject to individual contracts.
 </div>
-
 <div class="fdiv"></div>
     <div class="fbot"><div class="fcopy">© 2026 ESHFINGA. All Rights Reserved.</div><div class="fcopy"><a onclick="openArticle('privacy')" style="color:var(--t3);text-decoration:none;cursor:pointer;">Privacy Policy</a> · <a onclick="openArticle('privacy')" style="color:var(--t3);text-decoration:none;cursor:pointer;">Confidentiality Statement</a></div></div>
   </footer>
@@ -631,7 +668,7 @@ footer{background:var(--bg2);border-top:.5px solid var(--bdr);padding:3.5rem 5re
   </section>
 
   <div class="foot-simple">
-    <div class="fl"><img src="logo.png" alt="ESHFINGA"><span class="fn">ESHFINGA</span></div>
+    <div class="fl"><img loading="lazy" src="logo.png" alt="ESHFINGA"><span class="fn">ESHFINGA</span></div>
     <div class="fcopy">© 2026 ESHFINGA. All Rights Reserved.</div>
   </div>
 </div>
@@ -744,7 +781,7 @@ footer{background:var(--bg2);border-top:.5px solid var(--bdr);padding:3.5rem 5re
 
   </section>
   <div class="foot-simple">
-    <div class="fl"><img src="logo.png" alt="ESHFINGA"><span class="fn">ESHFINGA</span></div>
+    <div class="fl"><img loading="lazy" src="logo.png" alt="ESHFINGA"><span class="fn">ESHFINGA</span></div>
     <div class="fcopy">© 2026 ESHFINGA. All Rights Reserved.</div>
   </div>
 </div>
@@ -778,7 +815,7 @@ footer{background:var(--bg2);border-top:.5px solid var(--bdr);padding:3.5rem 5re
     </div>
   </section>
   <div class="foot-simple">
-    <div class="fl"><img src="logo.png" alt="ESHFINGA"><span class="fn">ESHFINGA</span></div>
+    <div class="fl"><img loading="lazy" src="logo.png" alt="ESHFINGA"><span class="fn">ESHFINGA</span></div>
     <div class="fcopy">© 2026 ESHFINGA. All Rights Reserved.</div>
   </div>
 </div>
@@ -805,7 +842,7 @@ footer{background:var(--bg2);border-top:.5px solid var(--bdr);padding:3.5rem 5re
     <div class="ethos-q" style="margin-top:2.5rem;">"We measure our success not by the transactions we complete, but by the institutions we help build — and the legacies we help protect."</div>
   </section>
   <div class="foot-simple">
-    <div class="fl"><img src="logo.png" alt="ESHFINGA"><span class="fn">ESHFINGA</span></div>
+    <div class="fl"><img loading="lazy" src="logo.png" alt="ESHFINGA"><span class="fn">ESHFINGA</span></div>
     <div class="fcopy">© 2026 ESHFINGA. All Rights Reserved.</div>
   </div>
 </div>
@@ -857,7 +894,7 @@ footer{background:var(--bg2);border-top:.5px solid var(--bdr);padding:3.5rem 5re
     </div>
   </section>
   <div class="foot-simple">
-    <div class="fl"><img src="logo.png" alt="ESHFINGA"><span class="fn">ESHFINGA</span></div>
+    <div class="fl"><img loading="lazy" src="logo.png" alt="ESHFINGA"><span class="fn">ESHFINGA</span></div>
     <div class="fcopy">© 2026 ESHFINGA. All Rights Reserved.</div>
   </div>
 </div>
@@ -897,7 +934,7 @@ footer{background:var(--bg2);border-top:.5px solid var(--bdr);padding:3.5rem 5re
     </div>
   </section>
   <div class="foot-simple">
-    <div class="fl"><img src="logo.png" alt="ESHFINGA"><span class="fn">ESHFINGA</span></div>
+    <div class="fl"><img loading="lazy" src="logo.png" alt="ESHFINGA"><span class="fn">ESHFINGA</span></div>
     <div class="fcopy">© 2026 ESHFINGA. All Rights Reserved.</div>
   </div>
 </div>
@@ -923,7 +960,7 @@ footer{background:var(--bg2);border-top:.5px solid var(--bdr);padding:3.5rem 5re
     </div>
   </section>
   <div class="foot-simple">
-    <div class="fl"><img src="logo.png" alt="ESHFINGA"><span class="fn">ESHFINGA</span></div>
+    <div class="fl"><img loading="lazy" src="logo.png" alt="ESHFINGA"><span class="fn">ESHFINGA</span></div>
     <div class="fcopy">© 2026 ESHFINGA. All Rights Reserved.</div>
   </div>
 </div>
@@ -939,25 +976,24 @@ footer{background:var(--bg2);border-top:.5px solid var(--bdr);padding:3.5rem 5re
         <p class="bodyp" style="margin-bottom:1.5rem;">All enquiries are treated with absolute confidentiality. Our team responds within 24 hours.</p>
         <div class="ifr-wrap" style="padding: 2.2rem; background: var(--surf);">
           <form id="customContactForm" action="https://api.web3forms.com/submit" method="POST" onsubmit="submitted=true;">
-            <!-- Get your free key at web3forms.com. Paste it below to start receiving submissions directly in your inbox. -->
             <input type="hidden" name="access_key" value="b3319d1f-a934-41c4-9221-02edd1c4d3d3">
             <input type="hidden" name="subject" value="New ESHFINGA Contact Request">
             <input type="hidden" name="from_name" value="ESHFINGA Website">
             <div class="fg">
               <label for="fName">Your Full Name *</label>
-              <input type="text" id="fName" name="entry.1511831393" required>
+              <input type="text" id="fName" name="name" required>
             </div>
             <div class="fg">
               <label for="fOrg">Your Organisation Name</label>
-              <input type="text" id="fOrg" name="entry.448319434">
+              <input type="text" id="fOrg" name="organisation">
             </div>
             <div class="fg">
               <label for="fEmail">Email Address *</label>
-              <input type="email" id="fEmail" name="entry.1585242626" required>
+              <input type="email" id="fEmail" name="email" required>
             </div>
             <div class="fg">
               <label for="fRegion">Region *</label>
-              <select id="fRegion" name="entry.2147136830" required>
+              <select id="fRegion" name="region" required>
                 <option value="" disabled selected>Select Region</option>
                 <option value="India">India</option>
                 <option value="UAE / Middle East">UAE / Middle East</option>
@@ -969,7 +1005,7 @@ footer{background:var(--bg2);border-top:.5px solid var(--bdr);padding:3.5rem 5re
             </div>
             <div class="fg">
               <label for="fNature">Nature of enquiry *</label>
-              <select id="fNature" name="entry.1162062232" required>
+              <select id="fNature" name="enquiry" required>
                 <option value="" disabled selected>Select Nature of Enquiry</option>
                 <option value="Finance">Finance</option>
                 <option value="Consulting">Consulting</option>
@@ -981,14 +1017,13 @@ footer{background:var(--bg2);border-top:.5px solid var(--bdr);padding:3.5rem 5re
             </div>
             <div class="fg">
               <label for="fMsg">Message / Enquiry *</label>
-              <textarea id="fMsg" name="entry.1811919060" required></textarea>
+              <textarea id="fMsg" name="message" required></textarea>
             </div>
             <button type="submit" class="bp" style="width:100%;margin-top:1.2rem;">Submit Request</button>
             <div id="formSuccessMessage" style="display:none;margin-top:1.2rem;color:var(--gold);font-size:.78rem;text-align:center;font-weight:600;">
               Thank you! Your request has been successfully submitted. We will contact you within 24 hours.
             </div>
           </form>
-          
         </div>
       </div>
       <div>
@@ -1004,19 +1039,17 @@ footer{background:var(--bg2);border-top:.5px solid var(--bdr);padding:3.5rem 5re
   </section>
   <footer>
     <div class="foot-top">
-      <div><div class="flogo"><img src="logo.png" alt="ESHFINGA"><div><div class="flogo-name">ESHFINGA</div><div class="flogo-motto">Intelligence · Integrity · Impact</div></div></div></div>
+      <div><div class="flogo"><img loading="lazy" src="logo.png" alt="ESHFINGA"><div><div class="flogo-name">ESHFINGA</div><div class="flogo-motto">Intelligence · Integrity · Impact</div></div></div></div>
       <div class="flinks">
-        <div class="fcol"><h5>Services</h5><a onclick="showPage('services')">Finance</a><a onclick="showPage('services')">Outsourcing</a><a onclick="showPage('services')">Consulting</a><a onclick="showPage('services')">Auditing</a><a onclick="showPage('services')">Advisory</a></div>
-        <div class="fcol"><h5>Markets</h5><a onclick="showPage('about')">Australia</a><a onclick="showPage('about')">UAE &amp; Middle East</a><a onclick="showPage('about')">Europe</a><a onclick="showPage('about')">Singapore</a></div>
-        <div class="fcol"><h5>Company</h5><a onclick="showPage('about')">About</a><a onclick="showPage('leadership')">Team</a><a onclick="showPage('partners')">Partners</a><a onclick="showPage('careers')">Careers</a></div>
+        <div class="fcol"><h5>Services</h5><a href="#services">Finance</a><a href="#services">Outsourcing</a><a href="#services">Consulting</a><a href="#services">Auditing</a><a href="#services">Advisory</a></div>
+        <div class="fcol"><h5>Markets</h5><a href="#about">Australia</a><a href="#about">UAE &amp; Middle East</a><a href="#about">Europe</a><a href="#about">Singapore</a></div>
+        <div class="fcol"><h5>Company</h5><a href="#about">About</a><a href="#leadership">Team</a><a href="#partners">Partners</a><a href="#careers">Careers</a></div>
       </div>
       <div class="fcontact"><h5 style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;font-weight:600;">Contact</h5><p>Lakshimipuram, Guntur<br>Andhra Pradesh, India<br><br><a href="tel:+919110570482">+91 911 057 0482</a><br><a href="mailto:info@eshfinga.com">info@eshfinga.com</a></p></div>
     </div>
-    
-<div style="font-size: 0.56rem; line-height: 1.6; color: var(--t3); text-align: justify; margin-top: 1.5rem; border-top: .5px solid var(--bdr); padding-top: 1.2rem; font-family: 'Montserrat', sans-serif;">
-  <strong>Important Disclaimer:</strong> ESHFINGA refers to a global network of independent business advisory professionals. The information and insights provided on this website are for general informational purposes only and do not constitute formal tax, legal, financial, or corporate advisory advice. ESHFINGA is not a registered corporate entity, commercial partnership, or licensed financial services licensee in any jurisdiction. Engagement of advisory services is subject to individual contracts.
+    <div class="foot-disclaimer">
+  <strong>Important Disclaimer:</strong> ESHFINGA refers to a global network of independent business advisory professionals. The content on this website is for informational purposes only and does not constitute formal tax, legal, financial, or corporate advisory advice. ESHFINGA is not a registered corporate entity, commercial partnership, or licensed financial services licensee in any jurisdiction. Engagement of advisory services is subject to individual contracts.
 </div>
-
 <div class="fdiv"></div>
     <div class="fbot"><div class="fcopy">© 2026 ESHFINGA. All Rights Reserved.</div><div class="fcopy"><a onclick="openArticle('privacy')" style="color:var(--t3);text-decoration:none;cursor:pointer;">Privacy Policy</a> · <a onclick="openArticle('privacy')" style="color:var(--t3);text-decoration:none;cursor:pointer;">Confidentiality Statement</a></div></div>
   </footer>
@@ -1065,16 +1098,21 @@ function showPage(id) {
   window.location.hash = '#' + id;
 }
 
-// Listen to URL changes and initial page load
-window.addEventListener('hashchange', navigateToHash);
-window.addEventListener('DOMContentLoaded', () => {
-  applySavedTheme();
-  navigateToHash();
-});
-
+// Mobile Hamburger Navigation
+function toggleMobileMenu() {
+  const menu = document.querySelector('.nlinks');
+  const btn = document.querySelector('.mmenu-btn');
+  const isOpen = menu.classList.contains('open');
+  if (isOpen) {
+    menu.classList.remove('open');
+    btn.textContent = '☰';
+  } else {
+    menu.classList.add('open');
+    btn.textContent = '✕';
+  }
+}
 
 // Secure AJAX Form submission (Free & Static Friendly)
-let submitted = false;
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("customContactForm");
   if (form) {
@@ -1090,6 +1128,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const object = Object.fromEntries(formData);
       const json = JSON.stringify(object);
       
+      console.log("Submitting form data to Web3Forms...", object);
       fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
@@ -1100,12 +1139,13 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .then(async (response) => {
         let jsonRes = await response.json();
+        console.log("Web3Forms API response status:", response.status, jsonRes);
         if (response.status == 200) {
           successMsg.style.display = "block";
+          successMsg.style.color = "var(--gold)";
           successMsg.textContent = "Thank you! Your request has been successfully submitted.";
           form.reset();
         } else {
-          console.log(response);
           successMsg.style.display = "block";
           successMsg.style.color = "#ff4a4a";
           successMsg.textContent = jsonRes.message || "Failed to submit request.";
@@ -1127,6 +1167,21 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+  
+  // Auto-close mobile menu when nav links are clicked
+  document.querySelectorAll('.nlinks a').forEach(a => {
+    a.addEventListener('click', () => {
+      const menu = document.querySelector('.nlinks');
+      const btn = document.querySelector('.mmenu-btn');
+      if (menu.classList.contains('open')) {
+        menu.classList.remove('open');
+        btn.textContent = '☰';
+      }
+    });
+  });
+  
+  // Cookie Consent check
+  setTimeout(checkCookieConsent, 1000);
 });
 
 // Cookie Consent Logic
@@ -1140,7 +1195,6 @@ function checkCookieConsent() {
 function acceptCookies() {
   localStorage.setItem('cookie_consent', 'accepted');
   document.getElementById('cookieConsentBanner').style.display = 'none';
-  // Proactively initialize GA4 / GTM if accepted
   initializeAnalytics();
 }
 
@@ -1151,19 +1205,14 @@ function dismissCookies() {
 
 function initializeAnalytics() {
   console.log("Analytics initialized (Consent given).");
-  // GA4 Initialization Code Placeholder:
-  /*
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-  */
 }
 
+// Listen to URL changes and initial page load
+window.addEventListener('hashchange', navigateToHash);
 window.addEventListener('DOMContentLoaded', () => {
-  setTimeout(checkCookieConsent, 1000); // Delay slightly for smoother UX
+  applySavedTheme();
+  navigateToHash();
 });
-
 
 // SERVICES — hover/click expand
 let hoverTimers={};
@@ -1447,35 +1496,6 @@ function closeModalBg(e) {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeModal();
 });
-
-// Mobile Hamburger Navigation
-function toggleMobileMenu() {
-  const menu = document.querySelector('.nlinks');
-  const btn = document.querySelector('.mmenu-btn');
-  const isOpen = menu.classList.contains('open');
-  if (isOpen) {
-    menu.classList.remove('open');
-    btn.textContent = '☰';
-  } else {
-    menu.classList.add('open');
-    btn.textContent = '✕';
-  }
-}
-
-// Auto-close mobile menu when nav links are clicked
-window.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.nlinks a').forEach(a => {
-    a.addEventListener('click', () => {
-      const menu = document.querySelector('.nlinks');
-      const btn = document.querySelector('.mmenu-btn');
-      if (menu.classList.contains('open')) {
-        menu.classList.remove('open');
-        btn.textContent = '☰';
-      }
-    });
-  });
-});
-
 </script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"1ef3db91e9444cd9b46bd60c55bedc1f","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 
