@@ -75,6 +75,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:cen
 /* HERO */
 .hero{position:relative;min-height:calc(100vh - 66px);display:flex;align-items:center;overflow:hidden;}
 .hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1800&q=85&fit=crop');background-size:cover;background-position:center;}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.hero-bg::after{z-index:1;}
 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(7,17,31,.94) 42%,rgba(7,17,31,.45) 100%);}
 [data-theme="light"] .hero-bg::after{background:linear-gradient(100deg,rgba(20,30,48,.85) 42%,rgba(20,30,48,.45) 100%);}
 .hero-content{position:relative;z-index:2;padding:4rem 4rem 6rem 5rem;max-width:680px;}
@@ -124,10 +126,12 @@ section{padding:5rem 5rem;max-width:1440px;margin:0 auto;}
 .ethos-q{font-family:'EB Garamond',serif;font-style:italic;font-size:1.18rem;color:var(--t2);padding:2rem 2.4rem;border-left:2px solid var(--gold);line-height:1.75;}
 
 /* PAGE BANNER */
-.pgban{position:relative;overflow:hidden;}
+.pgban{position:relative;overflow:hidden;height:300px;}
 .pgban img{width:100%;height:300px;object-fit:cover;display:block;}
-.pgban::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(7,17,31,.62),rgba(7,17,31,.78));}
-[data-theme="light"] .pgban::after{background:linear-gradient(rgba(14,22,40,.58),rgba(14,22,40,.74));}
+.pgban .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.pgban::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(7,17,31,.62),rgba(7,17,31,.78));z-index:1;}
+.pgban-txt{z-index:2;}
+[data-theme="light"] .pgban::after{background:linear-gradient(rgba(14,22,40,.58),rgba(14,22,40,.74)); z-index:1;}
 .pgban-txt{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;}
 .pgban-txt p{font-size:.63rem;letter-spacing:.38em;color:var(--gold);text-transform:uppercase;margin-bottom:.6rem;}
 .pgban-txt h1{font-family:'EB Garamond',serif;font-size:clamp(2rem,5vw,3.4rem);color:#e8e0cc;letter-spacing:.04em;}
@@ -471,7 +475,11 @@ footer{background:var(--bg2);border-top:.5px solid var(--bdr);padding:3.5rem 5re
 <!-- ══════ HOME ══════ -->
 <div id="page-home" class="page active">
   <div class="hero">
-    <div class="hero-bg"></div>
+    <div class="hero-bg">
+      <video autoplay loop muted playsinline class="hero-video" poster="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1800&q=85&fit=crop">
+        <source src="hero_bg_home.mp4" type="video/mp4">
+      </video>
+    </div>
     <div class="hero-content">
       <div class="hero-badge">Finance · Advisory · Compliance · Outsourcing</div>
       <div class="hero-name">ESHFINGA</div>
@@ -1074,7 +1082,7 @@ function toggleTheme() {
   document.querySelector('.tbtn').textContent = nextTheme === 'dark' ? '◐ Mode' : '◑ Mode';
 }
 
-// PERSISTENT SPA ROUTER
+// PERSISTENT SPA ROUTER WITH ACTIVE-TAB VIDEO CONTROLLER
 function navigateToHash() {
   const hash = window.location.hash.replace('#', '') || 'home';
   const targetPage = document.getElementById('page-' + hash);
@@ -1088,6 +1096,16 @@ function navigateToHash() {
     document.querySelectorAll('.nlinks a').forEach(a => a.classList.remove('act'));
     const activeNav = document.getElementById('nav-' + hash);
     if (activeNav) activeNav.classList.add('act');
+    
+    // Play/Pause video controller (Zero CPU/GPU lag for inactive pages)
+    document.querySelectorAll('video').forEach(video => {
+      const parentPage = video.closest('.page');
+      if (parentPage && parentPage.classList.contains('active')) {
+        video.play().catch(err => console.log("Video autoplay prevented:", err));
+      } else {
+        video.pause();
+      }
+    });
     
     window.scrollTo(0, 0);
   }
